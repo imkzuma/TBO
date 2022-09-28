@@ -1,3 +1,4 @@
+from dis import findlabels
 import os
 
 def Prefix(state , string):
@@ -7,28 +8,44 @@ def Prefix(state , string):
     if len(string) >= 3:
         if state == 'q0':
             if string[0] == '1':
+                print(state + " -> " + string[0] + ' -> ' + 'q1')
                 return Prefix('q1' , string[0:])
             else:
+                print(state + " -> " + string[0] + ' -> ' + errState)
                 return Prefix(errState , string[0:])
         
         elif state == 'q1':
             if string[1] == '0':
+                print(state + " -> " + string[0:2]  + ' -> ' + 'q2')
                 return Prefix('q2' , string[0:])
             else:
+                print(state + " -> " + string[0:2] + ' -> ' + errState)
                 return Prefix(errState , string[0:])
         
         elif state == 'q2':
             if string[2] == '1':
+                print(state + " -> " + string[0:3]  + ' -> ' + finishState)
                 return Prefix(finishState , string[0:])
             else:
+                print(state + " -> " + string[0:3] + ' -> ' + errState)
                 return Prefix(errState , string[0:])
         
-        elif state == finishState : return state
-        elif state == errState : return state
+        elif state == finishState : 
+            print(string[0:3] + " -> " + finishState) 
+            print(string + " -> " + finishState)
+            return state
 
-        else : return state
+        elif state == errState : 
+            print(string + " -> " + errState)
+            return state
+
+        else : 
+            print(string + " -> " + state)
+            return state
     
-    else: return errState
+    else : 
+        print(string + " -> " + errState)
+        return errState
 
 def Suffix(state , string):
     finishState= 'q3'
@@ -64,20 +81,26 @@ def SubString(state , string):
     if len(string) >= 1:
         if state == "q0":
             if string[0] == "1":
+                print(state + " -> " + string[0] + ' -> ' + 'q1')
                 return SubString("q1", string[1:])
             else:
+                print(state + " -> " + string[0] + ' -> ' + 'q0')
                 return SubString("q0", string[1:])
 
         elif state == "q1":
             if string[0] == "0":
+                print(state + " -> " + string[0] + ' -> ' + 'q2')
                 return SubString("q2", string[1:])
             else:
+                print(state + " -> " + string[0] + ' -> ' + 'q1')
                 return SubString("q1", string[1:])
                 
         elif state == "q2":
             if string[0] == "1":
+                print(state + " -> " + string[0] + ' -> ' + 'q3')
                 return SubString("q3", string[1:])
             else:
+                print(state + " -> " + string[0] + ' -> ' + 'q0')
                 return SubString("q0", string[1:])
 
         elif state == finishState : return finishState
@@ -95,7 +118,9 @@ def MainMenu():
     if choice == 1:
         print("\nMasukkan String: " , end='')
         string = str(input())
-        print("Hasil: " , Prefix('q0' , string))
+        
+        if Prefix('q0' , string) == 'q3': print("Hasil: q3 (Final State)")
+        else : print("Hasil: q4 (Dead State)")
 
     elif choice == 2:
         print("\nMasukkan String: " , end='')
@@ -110,10 +135,10 @@ def MainMenu():
         print("\nMasukkan String: " , end='')
         string = str(input())
 
-        if len(string) >= 3:
-            print("Hasil: " , SubString("q0", string))
+        if len(string) >= 3 and SubString("q0", string) == 'q3':
+            print("Hasil: q3 (Final State)")
 
-        else : print("q0")
+        else : print("q0 (Dead State)")
 
     os._exit(0)
 

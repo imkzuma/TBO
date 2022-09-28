@@ -110,7 +110,7 @@ def MainMenu():
     print("Tugas Programming DFA")
     print("================================")
     print("Menu: ")
-    print("1. Prefix \t\t 2. Suffix \n3. Substring 101 \t 4. Exit")
+    print("1. Prefix 101 \t\t 2. Suffix 101 \n3. Substring 101 \t 4. Exit")
     print("Masukkan Pilihan: " , end='')
     choice = int(input())
 

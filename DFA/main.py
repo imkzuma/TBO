@@ -32,19 +32,18 @@ def Prefix(state , string):
         elif state == finishState : 
             print(string[0:3] + " -> " + finishState) 
             print(string + " -> " + finishState)
-            return state
+            return(finishState + '(Final State)')
 
         elif state == errState : 
             print(string + " -> " + errState)
-            return state
+            return(errState + "(Dead State)")
 
         else : 
-            print(string + " -> " + state)
-            return state
+            return(string + " -> " + state)
     
     else : 
         print(string + " -> " + errState)
-        return errState
+        return(errState + "(Dead State)")
 
 def Suffix(state , string):
     finishState= 'q3'
@@ -69,7 +68,8 @@ def Suffix(state , string):
             else:
                 return Suffix("q0", suffixString[1:])
 
-        elif state == finishState : return finishState
+        elif state == finishState : 
+            return(finishState + "(Finish State)")
     
     return state
 
@@ -102,7 +102,8 @@ def SubString(state , string):
                 print(state + " -> " + string[0] + ' -> ' + 'q0')
                 return SubString("q0", string[1:])
 
-        elif state == finishState : return finishState
+        elif state == finishState : 
+            return(finishState + "Final State")
     
     return state
 
@@ -118,27 +119,20 @@ def MainMenu():
         print("\nMasukkan String: " , end='')
         string = str(input())
         
-        if Prefix('q0' , string) == 'q3': print("Hasil: q3 (Final State)")
-        else : print("Hasil: q4 (Dead State)")
+        print(Prefix('q0' , string))
 
     elif choice == 2:
         print("\nMasukkan String: " , end='')
         string = str(input())
-
-        if len(string) >= 3: 
-            print("Hasil: " , Suffix('q0' , string))
-
-        else : print('q0')
+        
+        print("Hasil: " , Suffix('q0' , string))
 
     elif choice == 3:
         print("\nMasukkan String: " , end='')
         string = str(input())
 
-        if len(string) >= 3 and SubString("q0", string) == 'q3':
-            print("Hasil: q3 (Final State)")
-
-        else : print("q0 (Dead State)")
-
+        print(SubString('q0' , string))
+            
     os._exit(0)
 
 MainMenu()

@@ -2,7 +2,7 @@
 # Ini merupakan fungsi dari L1 untuk mencari
 # string yang diawali dan diakhiri dengan simbol yang sama
 def SameString(state , string): 
-    #state adalah state awal, string adalah string yang akan diuji
+#state adalah state awal, string adalah string yang akan diuji
 
     firstFinishState = 'q1' #FINISH STATE AWAL YAITU q1
     secondFinishState = 'q3' #FINISH STATE KEDUA YAITU q3

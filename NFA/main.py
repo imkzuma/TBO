@@ -1,7 +1,15 @@
 # KELOMPOK 1
 
+# Ini merupakan fungsi L1 yang akan memanggil fungsi L2 sesuai dengan state awal
+# Menggunakan import karena fungsi L1 ada di file FunctionL1.py
 from FunctionL1 import SameString 
+
+# Ini merupakan fungsi L2 yang akan memanggil fungsi L2 sesuai dengan state awal
+# Menggunakan import karena fungsi L2 ada di file FunctionL2.py
 from FunctionL2 import L2
+
+# ini merupakan fungsi L3 yang akan memanggil fungsi L3 sesuai dengan state awal
+# Menggunakan import karena fungsi L3 ada di file FunctionL3.py
 from FunctionL3 import L3
 
 # Ini merupakan fungsi main menu 

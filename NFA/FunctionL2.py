@@ -2,7 +2,7 @@
 # Ini merupakan fungsi dari L2 untuk mencari
 # string yang diawali simbol 1 dan jumlah simbol 0 adalah kelipatan 3
 def L2(state , string):
-    # state adalah state awal, string adalah string yang akan diuji
+# state adalah state awal, string adalah string yang akan diuji
 
     finishState = ['q5' , 'q4']
     # FINISH STATE YAITU q5 dan q4

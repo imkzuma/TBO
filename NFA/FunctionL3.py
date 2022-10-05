@@ -1,7 +1,8 @@
 # Ini merupakan fungsi dari L3 untuk Mencari
 # string yang diawali 0 dan jumlah simbol 1 adalah ganjil
 def L3(state , string): 
-    #Fungsi L3 dengan parameter state dan string
+# Fungsi L3 dengan parameter state dan string
+# state adalah state awal, string adalah string yang akan diuji
     
     finishState = 'q2'
     #Mendefinisikan finishState dengan nilai q2

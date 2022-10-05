@@ -1,5 +1,3 @@
-import os
-
 def Prefix(state , string):
     errState = 'q4'
     finishState = 'q3'
@@ -133,6 +131,6 @@ def MainMenu():
 
         print(SubString('q0' , string))
             
-    os._exit(0)
+    exit()
 
 MainMenu()

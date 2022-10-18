@@ -563,4 +563,5 @@ def mainMenu(): #Pilihan menu
 
 
 # main program
-mainMenu() # memanggil fungsi mainMenu
+if __name__ == "__main__": # jika __name__ adalah __main__
+    mainMenu() # maka akan menampilkan menu utama

@@ -5,9 +5,10 @@
 
 #import fungsi floor dan sqrt dari math
 from math import floor , sqrt
-from secrets import choice 
+
 #import fungsi arange dari numpy
 from numpy import arange 
+
 #import fungsi system dari os
 from os import system 
 
@@ -556,9 +557,9 @@ def mainMenu(): #Pilihan menu
     # mengembalikan nilai dari fungsi mainMenu
     print("\nApakah ingin mengulang?\n1. Yes\n2. No\n")
 
-    choice = int(input("Pilihan : ")) # inputan pilihan 
+    userChoice = int(input("Pilihan : ")) # inputan pilihan 
 
-    if choice == 1 : mainMenu() # jika choice adalah 1 maka akan kembali ke menu utama
+    if userChoice == 1 : mainMenu() # jika choice adalah 1 maka akan kembali ke menu utama
 
 
 # main program

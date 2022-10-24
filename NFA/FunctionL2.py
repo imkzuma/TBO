@@ -4,8 +4,8 @@
 def L2(state , string):
 # state adalah state awal, string adalah string yang akan diuji
 
-    finishState = ['q5' , 'q4']
-    # FINISH STATE YAITU q5 dan q4
+    finishState = ['q4']
+    # FINISH STATE YAITU q4
 
     if(string!=""): # Jika string tidak kosong
 
@@ -14,11 +14,9 @@ def L2(state , string):
 
         if(state == "q0"): # Jika state awal adalah q0
             if(string[0] == "1"): # Jika string yang akan diuji adalah 1
-                print( finishState[0], ", q1") 
-                # Maka akan menampilkan finish state q5 dan state q1
-
-                return [L2(finishState[0], string[1:] )]  +  [L2("q1",string[1:])]
-                # Mengembalikan fungsi dengan state awal finish state q5 dan state q1
+                print(state)
+                return L2('q1', string[1:] )  
+                # Mengembalikan fungsi dengan state awal q1 dan string yang akan diuji adalah string yang akan diuji tanpa karakter pertama
 
             else: # Jika string yang akan diuji bukan 1
                 print("Dead State") # Maka akan menampilkan dead state
@@ -57,12 +55,12 @@ def L2(state , string):
                 # Mengembalikan fungsi dengan state awal q3
 
             else: # Jika string yang akan diuji bukan 1
-                print(finishState[1]) # Maka akan menampilkan finish state q4
+                print(finishState[0]) # Maka akan menampilkan finish state q4
 
-                return L2(finishState[1],string[1:])
+                return L2(finishState[0],string[1:])
                 # Mengembalikan fungsi dengan state awal finish state q4
 
-        elif(state == finishState[1]): # Jika state awal adalah finish state q4
+        elif(state == finishState[0]): # Jika state awal adalah finish state q4
             if(string[0]=="1"): # dan Jika string yang akan diuji adalah 1
                 print(state) # Maka akan menampilkan state q4
 
